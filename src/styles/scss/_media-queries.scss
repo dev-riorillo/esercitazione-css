@@ -1,0 +1,135 @@
+@import "variables";
+
+
+@media screen and (max-width: 992px) {
+    .slide {
+        height: auto;
+        overflow: hidden;
+
+        &__header {
+            padding-top: $slide-padding;
+            justify-content: flex-start;
+
+            &--bigger {
+                padding: 0;
+            }
+
+            &__upper-box {
+                justify-content: flex-start;
+
+                h1, h2, h3, p {
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+    .slide__header__upper-box--title-only {
+        padding: 0;
+    }
+
+    .slide__header__upper-box--long-text {
+        padding: 0;
+        align-items: flex-start;
+        gap: 0;
+
+        div {
+            width: 100%;
+            background-color: white;
+            padding: 0 $slide-padding 0 $slide-padding;
+
+            h3, p {
+                text-align: left;
+            }
+        }
+
+        //La prima e la seconda didascalia differiscono leggermente dalle successive;
+        .first-subtext {
+            background-color: $primary-color;
+            padding: $slide-padding;
+            padding-bottom: $slide-padding;
+
+            h2 {
+                text-align: left;
+            }
+        }
+
+        //Vedi commento riga 300;
+        .second-subtext {
+            padding-top: $slide-padding;
+        }
+    }
+
+    //Rimuove le linea guida;
+    h3::after,
+    h2::after,
+    h3::before,
+    h2::before,
+    h1::before,
+    h1::after {
+        content: none !important;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .slide {
+        overflow: hidden;
+
+        &__header {
+            h1 {
+                font-size: $h1-font-size * 0.80;
+                line-height: $h1-line-height * 0.80;
+            }
+
+            &__upper-box {
+                &--long-text {
+                    div {
+                        padding: calc($slide-padding / 2);
+                    }
+                }
+            }
+
+            &__lower-box {
+                h2 {
+                    font-size: 0.90rem;
+                }
+            }
+
+            padding-right: 0;
+            padding-left: calc($slide-padding / 2);
+
+            &--bigger {
+                padding: 0;
+            }
+        }
+
+        &__content {
+            padding: 0;
+
+            &__buttons {
+                flex-direction: column;
+                align-self: stretch !important;
+
+                button {
+                    width: 100%;
+                }
+            }
+
+            &--structured {
+                padding: calc($slide-padding / 2);
+            }
+
+            &--bigger {
+                padding: 0;
+
+                &>p {
+                    padding: calc($slide-padding / 2);
+                }
+            }
+        }
+
+        .first-subtext {
+            padding-left: calc($slide-padding / 2);
+        }
+    }
+}
